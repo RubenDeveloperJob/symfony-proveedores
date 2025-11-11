@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gestión de Proveedores{% endblock %}</title>
+
+    <!-- Pico.css: diseño limpio, sin escribir CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+  </head>
+  <body>
+    <main class="container">
+      {% for message in app.flashes('success') %}
+        <div class="flash-success">{{ message }}</div>
+      {% endfor %}
+      {% block body %}{% endblock %}
+    </main>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+
+  </body>
+</html>
+

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Proveedores</h1>
+
+  <p>
+    <a href="{{ path('supplier_new') }}">➕ Nuevo proveedor</a>
+  </p>
+
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Tipo</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in suppliers %}
+        <tr>
+          <td>{{ s.name }}</td>
+          <td>{{ s.email }}</td>
+          <td>{{ s.phone }}</td>
+          <td>{{ s.type }}</td>
+          <td>{{ s.active ? '✅' : '❌' }}</td>
+          <td>
+            <a href="{{ path('supplier_edit', {id: s.id}) }}">Editar</a>
+            <form method="post" action="{{ path('supplier_delete', {id: s.id}) }}" style="display:inline;">
+              <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ s.id) }}">
+              <button type="submit" onclick="return confirm('¿Eliminar este proveedor?')">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {% else %}
+        <tr><td colspan="6">No hay proveedores registrados.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

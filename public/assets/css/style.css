@@ -1,0 +1,58 @@
+@import url('https://unpkg.com/@picocss/pico@latest/css/pico.min.css');
+
+/* ====== Personalización ====== */
+body {
+  padding: 2rem;
+}
+
+main.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+}
+
+td form {
+  display: inline;
+}
+
+.flash-success {
+  background-color: #e0ffe0;
+  border-left: 5px solid #2ecc71;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+/* “Girito” visual extra */
+h1 {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h1::before {
+  content: "📦";
+  font-size: 1.5rem;
+}
+
+button.delete {
+  background: #e74c3c;
+  color: white;
+}
+
+button.edit {
+  background: #3498db;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.active-row {
+  background-color: #f0f8ff;
+}
